@@ -1,9 +1,8 @@
-import WeatherApp from "./components/WeatherApp"
 
 function App() {
 
   return (
-    <WeatherApp/>
+    <h2>hola</h2>
   )
 }
 
