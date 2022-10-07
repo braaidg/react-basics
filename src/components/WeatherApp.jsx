@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import WeatherForm from "./WeatherForm";
 import { WeatherMainInfo } from "./WeatherMainInfo";
+import Loading from "./Loading";
+
+import styles from './WeatherApp.module.css'
 
 const {VITE_REACT_APP_URL, VITE_REACT_APP_KEY } = import.meta.env
 
@@ -20,7 +23,6 @@ const WeatherApp = () => {
     try {
       const request = await fetch(`${VITE_REACT_APP_URL}&key=${VITE_REACT_APP_KEY}&q=${city}`)
       const json = await request.json()
-      console.log(json)
       setWeather(json)
     } catch (error) {
       console.log(error)
@@ -34,9 +36,9 @@ const WeatherApp = () => {
 
 
   return (
-    <div>
+    <div className={styles.weatherContainer}>
       <WeatherForm onChangeCity={handleChangeCity}/>
-      <WeatherMainInfo weather={weather} />
+      { weather ? <WeatherMainInfo weather={weather} /> : <Loading />}
     </div>
   )
 }
