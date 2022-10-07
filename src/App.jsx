@@ -1,10 +1,9 @@
-
-import TodoApp from './components/todoApp'
+import WeatherApp from "./components/WeatherApp"
 
 function App() {
 
   return (
-    <TodoApp/>
+    <WeatherApp/>
   )
 }
 
